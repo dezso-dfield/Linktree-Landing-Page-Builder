@@ -1,0 +1,383 @@
+/* General Layout */
+.app-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.editor-panel {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px; /* Limit width for editor */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.preview-panel {
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px; /* Standard phone width for preview */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align preview to the top */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+/* Editor Panel Elements */
+.editor-panel label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.editor-panel input[type="text"],
+.editor-panel textarea,
+.editor-panel select,
+.editor-panel input[type="color"] { /* Added color input */
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.editor-panel textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.editor-panel button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.editor-panel button:hover {
+  background-color: #0056b3;
+}
+
+.editor-panel .add-button {
+  background-color: #28a745;
+}
+
+.editor-panel .add-button:hover {
+  background-color: #218838;
+}
+
+.editor-panel .remove-button {
+  background-color: #dc3545;
+}
+
+.editor-panel .remove-button:hover {
+  background-color: #c82333;
+}
+
+.social-item, .link-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.social-item select, .link-item input {
+  flex-grow: 1;
+  margin-bottom: 0; /* Override default margin */
+}
+
+.service-editor-card {
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+/* Cropper Modal Styles */
+.cropper-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cropper-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cropper-area {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #f0f0f0; /* Helps visualize the cropper area */
+  border: 1px solid #ddd;
+  overflow: hidden; /* Important for Cropper */
+}
+
+.save-crop-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.save-crop-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Live Preview Specific Styles */
+.preview-wrapper {
+  width: 100%;
+  max-width: 350px; /* Typical mobile width */
+  margin: 0 auto;
+  min-height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.preview-card {
+  text-align: center;
+  padding: 15px;
+}
+
+/* Remove direct background/color for dark/gradient themes here,
+   as it's now handled by inline styles in LivePreview for consistency with custom colors.
+   If you want to keep the "preset" behavior for dark/gradient, you can put it back.
+*/
+.preview-wrapper.theme-dark {
+  /* background-color: #333; */
+  /* color: #f0f0f0; */
+}
+
+.preview-wrapper.theme-gradient {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  /* color: #333; */
+}
+
+.header-background {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 10px;
+}
+
+.preview-card h2 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+  color: inherit; /* Ensure it inherits from preview-card */
+}
+
+.preview-card p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: inherit; /* Ensure it inherits from preview-card */
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  transition: color 0.2s ease;
+}
+
+/* These will be overridden by inline styles from LivePreview now, if needed */
+.preview-wrapper.theme-dark .social-icon,
+.preview-wrapper.theme-gradient .social-icon {
+  /* color: #eee; */
+}
+
+.social-icon:hover {
+  color: #007bff;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.link-button {
+  display: block;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.link-button:hover {
+  background-color: #0056b3;
+}
+
+.services-section h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: inherit; /* Ensure it inherits from preview-card */
+}
+
+.services-list {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.service-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  color: #333; /* Ensure text is readable in cards */
+}
+
+.preview-wrapper.theme-dark .service-card {
+  background-color: #444;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+.preview-wrapper.theme-gradient .service-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+}
+
+.service-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.service-card h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.service-card strong {
+  color: #007bff;
+}
+
+/* Reviews Section */
+.reviews h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: inherit; /* Ensure it inherits from preview-card */
+}
+
+.reviews input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  /* background-color and color now handled by inline styles in LivePreview */
+}
+
+/* These will be overridden by inline styles from LivePreview now, if needed */
+.preview-wrapper.theme-dark .reviews input[type="text"] {
+  /* background-color: #555; */
+  /* color: #f0f0f0; */
+  /* border-color: #666; */
+}
+
+.reviews button {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reviews button:hover {
+  background-color: #5a6268;
+}
+
+.reviews ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.reviews li {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  border-left: 4px solid #007bff;
+  /* background-color and color now handled by inline styles in LivePreview */
+}
+
+/* These will be overridden by inline styles from LivePreview now, if needed */
+.preview-wrapper.theme-dark .reviews li {
+  /* background-color: #555; */
+  /* color: #f0f0f0; */
+  /* border-color: #888; */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .editor-panel, .preview-panel {
+    width: 100%;
+    max-width: unset;
+  }
+}
